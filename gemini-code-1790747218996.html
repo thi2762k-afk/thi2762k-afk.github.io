@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주 여행 & 맛집 가이드</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            text-align: center;
+            padding: 15px 0;
+        }
+        nav a {
+            color: #495057;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #2b8a3e;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #1b4332;
+            border-bottom: 3px solid #2d6a4f;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+        .card-desc {
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2d6a4f;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>제주 감성 여행 기록</h1>
+        <p>아름다운 섬 제주도의 명소와 별미 이야기</p>
+    </header>
+
+    <nav>
+        <a href="#places">추천 여행지 10선</a>
+        <a href="#foods">추천 음식 10선</a>
+    </nav>
+
+    <div class="container">
+        <!-- 여행지 섹션 -->
+        <h2 id="places" class="section-title">🏝️ 제주 추천 여행지 10선</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=500&q=80" alt="성산일출봉">
+                <div class="card-content">
+                    <div class="card-title">1. 성산일출봉</div>
+                    <div class="card-desc">유네스코 세계자연유산으로 정성스러운 일출과 탁 트인 바다 전경이 일품인 대표 명소.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=500&q=80" alt="협재해수욕장">
+                <div class="card-content">
+                    <div class="card-title">2. 협재해수욕장</div>
+                    <div class="card-desc">투명한 에메랄드빛 바다와 에메랄드 해변 너머 비양도가 한눈에 들어오는 서부 대표 해변.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="섭지코지">
+                <div class="card-content">
+                    <div class="card-title">3. 섭지코지</div>
+                    <div class="card-desc">해안 절벽을 따라 조성된 산책로와 하얀 등대가 어우러지는 낭만적인 풍경의 산책 코스.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=500&q=80" alt="비자림">
+                <div class="card-content">
+                    <div class="card-title">4. 비자림</div>
+                    <div class="card-desc">수백 년 된 비자나무가 빼곡히 들어선 숲길로, 피톤치드가 가득한 힐링 코스.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80" alt="한라산 국립공원">
+                <div class="card-content">
+                    <div class="card-title">5. 한라산 국립공원</div>
+                    <div class="card-desc">대한민국 최남단 최고봉으로, 계절마다 변하는 웅장한 자연경관을 품은 제주의 심장.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="천지연폭포">
+                <div class="card-content">
+                    <div class="card-title">6. 천지연폭포</div>
+                    <div class="card-desc">울창한 난대림 속에서 시원하게 떨어지는 폭포수로, 야간 조명 풍경도 매력적인 곳.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=500&q=80" alt="새별오름">
+                <div class="card-content">
+                    <div class="card-title">7. 새별오름</div>
+                    <div class="card-desc">가을철 억새가 장관을 이루는 대표 오름으로, 정상에서 바라보는 노을이 매우 아름답습니다.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80" alt="우도">
+                <div class="card-content">
+                    <div class="card-title">8. 우도</div>
+                    <div class="card-desc">제주 동쪽에 위치한 섬 속의 섬. 서빈백사와 우도봉, 땅콩 아이스크림이 유명합니다.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=500&q=80" alt="주상절리대">
+                <div class="card-content">
+                    <div class="card-title">9. 대포주상절리대</div>
+                    <div class="card-desc">육각형 모양의 묵직한 육중한 기둥들이 겹겹이 쌓인 용암 경관과 파도가 장관을 이룹니다.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=500&q=80" alt="카멜리아힐">
+                <div class="card-content">
+                    <div class="card-title">10. 카멜리아힐</div>
+                    <div class="card-desc">계절마다 다양한 동백꽃과 수국, 야생화가 만발하는 수목원으로 인생샷 포토존이 가득합니다.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 음식 섹션 -->
+        <h2 id="foods" class="section-title">🍊 제주 대표 음식 10선</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="흑돼지 구이">
+                <div class="card-content">
+                    <div class="card-title">1. 흑돼지 구이</div>
+                    <div class="card-desc">두툼한 목살과 오겹살을 멜젓(멸치젓)에 찍어 먹는 고소하고 풍부한 육즙의 고기 요리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=500&q=80" alt="고기국수">
+                <div class="card-content">
+                    <div class="card-title">2. 고기국수</div>
+                    <div class="card-desc">돼지사골로 진하게 우려낸 육수에 두툼한 돔베고기를 올려먹는 따뜻한 면 요리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" alt="전복죽">
+                <div class="card-content">
+                    <div class="card-title">3. 전복죽</div>
+                    <div class="card-desc">싱싱한 전복 내장(게우)을 넣어 진한 녹빛을 띠는 고소하고 부드러운 영양죽.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=500&q=80" alt="한라봉 / 감귤">
+                <div class="card-content">
+                    <div class="card-title">4. 한라봉 & 감귤</div>
+                    <div class="card-desc">제주의 따뜻한 햇살을 받아 당도가 높고 과즙이 풍부한 상큼한 특산 과일.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1535567465397-7523840f2ae9?auto=format&fit=crop&w=500&q=80" alt="갈치조림">
+                <div class="card-content">
+                    <div class="card-title">5. 제주 갈치조림</div>
+                    <div class="card-desc">매콤달콤한 양념에 무와 함께 졸여낸 통통하고 부드러운 제주산 은갈치 요리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="물회">
+                <div class="card-content">
+                    <div class="card-title">6. 자리돔 / 한치 물회</div>
+                    <div class="card-desc">된장이나 초고추장 베이스의 시원한 국물에 싱싱한 회와 채소를 말아먹는 별미.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80" alt="우도 땅콩 아이스크림">
+                <div class="card-content">
+                    <div class="card-title">7. 우도 땅콩 아이스크림</div>
+                    <div class="card-desc">고소한 우도산 땅콩과 땅콩 가루를 듬뿍 올려 만든 달콤하고 고소한 디저트.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="오메기떡">
+                <div class="card-content">
+                    <div class="card-title">8. 오메기떡</div>
+                    <div class="card-desc">차조 가루 반죽에 팥소를 넣고 겉면에 팥고물을 묻혀 만든 제주의 전통 떡.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=500&q=80" alt="몸국">
+                <div class="card-content">
+                    <div class="card-title">9. 몸국</div>
+                    <div class="card-desc">돼지고기 삶은 육수에 모자반(몸)과 메밀가루를 넣어 끓여낸 든든한 향토 국물 요리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=500&q=80" alt="보말칼국수">
+                <div class="card-content">
+                    <div class="card-title">10. 보말칼국수</div>
+                    <div class="card-desc">바다 고동(보말)을 삶아 우려낸 진하고 담백한 육수의 쫄깃한 칼국수.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 제주 여행 매니아의 개인 홈페이지. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
