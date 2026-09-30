@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주 여행 일기 | 나의 한국 여행기</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://placehold.co/1200x400/0077b6/ffffff?text=JEJU+ISLAND');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            sticky: top;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0077b6;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        nav a:hover {
+            background-color: #0077b6;
+            color: white;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #023e8a;
+            border-bottom: 3px solid #0077b6;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1d3557;
+        }
+        .card-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1d3557;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>제주, 바람과 바다의 기록</h1>
+        <p>한국 여행을 사랑하는 나의 제주도 추천 명소 & 음식 10선</p>
+    </header>
+
+    <nav>
+        <a href="#places">추천 명소 10곳</a>
+        <a href="#foods">추천 음식 10선</a>
+    </nav>
+
+    <div class="container">
+        <!-- 명소 섹션 -->
+        <h2 id="places" class="section-title">🏝️ 제주 추천 명소 10곳</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=1.+성산일출봉" alt="성산일출봉">
+                <div class="card-content">
+                    <div class="card-title">1. 성산일출봉</div>
+                    <div class="card-desc">바다 위로 솟아오른 유네스코 세계자연유산, 장엄한 일출이 일품인 곳.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=2.+한라산+국립공원" alt="한라산">
+                <div class="card-content">
+                    <div class="card-title">2. 한라산 국립공원</div>
+                    <div class="card-desc">대한민국 최남단 최고봉. 사계절 변화무쌍한 신비로운 자연 풍경.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=3.+협재해수욕장" alt="협재해수욕장">
+                <div class="card-content">
+                    <div class="card-title">3. 협재해수욕장</div>
+                    <div class="card-desc">에메랄드빛 투명한 바다와 비양도가 한눈에 들어오는 서쪽 해변.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=4.+우도" alt="우도">
+                <div class="card-content">
+                    <div class="card-title">4. 우도</div>
+                    <div class="card-desc">소와 닮은 섬 속의 섬. 자전거나 전기차를 타고 둘러보기 좋은 휴양지.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=5.+섭지코지" alt="섭지코지">
+                <div class="card-content">
+                    <div class="card-title">5. 섭지코지</div>
+                    <div class="card-desc">해안 절벽과 유채꽃, 아름다운 등대가 만나는 낭만적인 산책로.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=6.+카멜리아힐" alt="카멜리아힐">
+                <div class="card-content">
+                    <div class="card-title">6. 카멜리아힐</div>
+                    <div class="card-desc">동백꽃과 수국 등 계절마다 화려한 꽃들이 반겨주는 수목원.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=7.+비자림" alt="비자림">
+                <div class="card-content">
+                    <div class="card-title">7. 비자림</div>
+                    <div class="card-desc">수령 500~800년의 비자나무들이 빼곡한 상쾌한 숲길.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=8.+산굼부리" alt="산굼부리">
+                <div class="card-content">
+                    <div class="card-title">8. 산굼부리</div>
+                    <div class="card-desc">가을철 억새 물결이 장관을 이루는 희귀한 마르(Maar)형 분화구.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=9.+주상절리대" alt="주상절리대">
+                <div class="card-content">
+                    <div class="card-title">9. 주상절리대</div>
+                    <div class="card-desc">육각형 모양의 깎아지른 듯한 돌기둥 절벽에 부딪히는 파도.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/0077b6/ffffff?text=10.+새별오름" alt="새별오름">
+                <div class="card-content">
+                    <div class="card-title">10. 새별오름</div>
+                    <div class="card-desc">경사가 다소 완만하여 정상에서 일몰을 감상하기 가장 좋은 오름.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 음식 섹션 -->
+        <h2 id="foods" class="section-title">🍊 제주 추천 음식 10선</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=1.+제주+흑돼지" alt="제주 흑돼지">
+                <div class="card-content">
+                    <div class="card-title">1. 제주 흑돼지 구이</div>
+                    <div class="card-desc">멜젓에 찍어 먹는 쫄깃하고 고소한 육즙 가득한 대표 먹거리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=2.+고기국수" alt="고기국수">
+                <div class="card-content">
+                    <div class="card-title">2. 고기국수</div>
+                    <div class="card-desc">진한 돼지사골 육수에 큼직한 돔베고기를 올려먹는 면요리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=3.+갈치조림" alt="갈치조림">
+                <div class="card-content">
+                    <div class="card-title">3. 제주 통갈치조림</div>
+                    <div class="card-desc">매콤달콤한 양념에 졸여진 길고 도톰한 생선 살이 매력적인 요리.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=4.+전복죽" alt="전복죽">
+                <div class="card-content">
+                    <div class="card-title">4. 전복죽</div>
+                    <div class="card-desc">내장까지 함께 넣어 녹빛을 띠는 깊고 부드러운 맛의 건강식.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=5.+몸국" alt="몸국">
+                <div class="card-content">
+                    <div class="card-title">5. 몸국</div>
+                    <div class="card-desc">돼지고기 삶은 육수에 모자반(해조류)을 넣고 끓여낸 제주 향토국.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=6.+한라봉과+감귤" alt="한라봉과 감귤">
+                <div class="card-content">
+                    <div class="card-title">6. 한라봉 & 천혜향</div>
+                    <div class="card-desc">제주의 햇살을 가득 받고 자란 새콤달콤 상큼한 대표 과일.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=7.+우도+땅콩+아이스크림" alt="우도 땅콩 아이스크림">
+                <div class="card-content">
+                    <div class="card-title">7. 우도 땅콩 아이스크림</div>
+                    <div class="card-desc">우도 특산물인 고소한 알땅콩이 듬뿍 올라간 디저트.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=8.+오메기떡" alt="오메기떡">
+                <div class="card-content">
+                    <div class="card-title">8. 오메기떡</div>
+                    <div class="card-desc">차조 가루 떡 속에 팥소를 넣고 겉에 팥고물을 묻힌 제주 전통 떡.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=9.+보말칼국수" alt="보말칼국수">
+                <div class="card-content">
+                    <div class="card-title">9. 보말칼국수</div>
+                    <div class="card-desc">제주 바다 고동(보말)을 깔끔하게 우려내어 시원하고 쫀득한 칼국수.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x300/e63946/ffffff?text=10.+딱새우회" alt="딱새우회">
+                <div class="card-content">
+                    <div class="card-title">10. 딱새우회</div>
+                    <div class="card-desc">입안에서 탱글하게 씹히는 제주 근해의 달달하고 싱싱한 딱새우.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Jeju Travel Log. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
