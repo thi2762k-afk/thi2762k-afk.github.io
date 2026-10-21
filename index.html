@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윤진이의 미니게임 & 한국 여행 가이드</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --radius-lg: 16px;
+            --radius-md: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 14px;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #1e293b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            width: 100%;
+            max-width: 1100px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #e0e7ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .card p.desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .game-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 10px;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+        }
+
+        input {
+            padding: 10px 14px;
+            margin-top: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 85%;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .result-text {
+            font-weight: 600;
+            color: #d97706;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* TOP 10 Cards with Media Layout */
+        .top10-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        @media (max-width: 600px) {
+            .top10-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .top10-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .media-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .media-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 10px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .media-item:hover {
+            background-color: #f1f5f9;
+            transform: translateX(4px);
+        }
+
+        .media-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: #e2e8f0;
+        }
+
+        .media-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media-info .rank-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .media-info .rank-title span {
+            color: var(--primary);
+            margin-right: 6px;
+        }
+
+        .media-info .desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge"><i class="fa-solid fa-gamepad"></i> MINI ARCADE & TRAVEL</span>
+        <h1>윤진이의 미니게임 & 한국 여행 가이드</h1>
+        <p>재미있는 웹 미니게임 6종과 서울 명소 & 대표 한국 음식 TOP 10을 만나보세요!</p>
+    </header>
+
+    <!-- 게임 섹션 타이틀 -->
+    <div class="section-title">
+        <i class="fa-solid fa-dice"></i> 미니게임 아케이드
+    </div>
+
+    <div class="container">
+        <!-- 1. 끝말잇기 도우미 -->
+        <div class="card">
+            <div>
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>1. 단어 연상 끝말잇기</h3>
+                </div>
+                <p class="desc">제시된 단어로 시작하는 말을 생각해보세요!</p>
+            </div>
+            <div class="game-box">
+                <span id="word-prompt">제시어: <b>사과</b></span>
+                <input type="text" id="word-input" placeholder="다음 단어 입력">
+                <button onclick="checkWord()">입력하기</button>
+            </div>
+            <div id="word-result" class="result-text"></div>
+        </div>
+
+        <!-- 2. 초성 퀴즈 -->
+        <div class="card">
+            <div>
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-font"></i></div>
+                    <h3>2. 랜덤 초성 퀴즈</h3>
+                </div>
+                <p class="desc">초성만 보고 단어를 유추해 보세요!</p>
+            </div>
+            <div class="game-box">
+                <span id="chosung-display" style="font-size: 18px; font-weight: 700;">단어 글자수: 2글자</span>
+                <button onclick="nextChosung()">새로운 문제</button>
+            </div>
+            <div id="chosung-hint" class="result-text">힌트: 빨갛고 아삭한 과일 (사과)</div>
+        </div>
+
+        <!-- 3. 랜덤 빙고 생성기 -->
+        <div class="card">
+            <div>
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-table-cells"></i></div>
+                    <h3>3. 미니 3x3 빙고 판</h3>
+                </div>
+                <p class="desc">버튼을 눌러 나만의 무작위 번호판을 만드세요!</p>
+            </div>
+            <div class="game-box">
+                <div id="bingo-board" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%;">
+                    <!-- 동적 생성 -->
+                </div>
+                <button onclick="generateBingo()">빙고판 섞기</button>
+            </div>
+        </div>
+
+        <!-- 4. 20고개 시뮬레이터 -->
+        <div class="card">
+            <div>
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-circle-question"></i></div>
+                    <h3>4. 20고개 단어 맞추기</h3>
+                </div>
+                <p class="desc">AI가 숨긴 단어를 예/아니오 질문으로 맞춰보세요.</p>
+            </div>
+            <div class="game-box">
+                <span id="twenty-status">단어가 숨겨졌습니다! 질문을 던져보세요.</span>
+                <input type="text" id="twenty-input" placeholder="예: 살아있나요?">
+                <button onclick="askTwenty()">질문하기</button>
+            </div>
+            <div id="twenty-result" class="result-text"></div>
+        </div>
+
+        <!-- 5. 명대사 뽑기 -->
+        <div class="card">
+            <div>
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+                    <h3>5. 명대사 뽑기</h3>
+                </div>
+                <p class="desc">랜덤 영화/드라마 명대사를 확인해보세요!</p>
+            </div>
+            <div class="game-box">
+                <span id="quote-display">"어이가 없네?"</span>
+                <button onclick="nextQuote()">다른 대사 보기</button>
+            </div>
+        </div>
+
+        <!-- 6. 훈민정음 금지어 뽑기 -->
+        <div class="card">
+            <div>
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-ban"></i></div>
+                    <h3>6. 금지 자음 뽑기</h3>
+                </div>
+                <p class="desc">오늘의 대화 중 절대 쓰면 안 되는 금지 자음!</p>
+            </div>
+            <div class="game-box">
+                <span id="forbidden-display" style="font-size: 22px; color: #ef4444; font-weight: bold;">(아직 뽑지 않음)</span>
+                <button onclick="pickForbidden()">금지 자음 뽑기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 추천 정보 섹션 타이틀 -->
+    <div class="section-title">
+        <i class="fa-solid fa-compass"></i> 한국 문화 & 여행 추천 TOP 10
+    </div>
+
+    <div class="top10-grid">
+        <!-- 서울 관광 명소 TOP 10 -->
+        <div class="top10-card">
+            <div class="card-header">
+                <div class="card-icon" style="background:#dbeafe; color:#2563eb;"><i class="fa-solid fa-landmark"></i></div>
+                <div>
+                    <h3>서울 관광 명소 TOP 10</h3>
+                    <p class="desc" style="margin-bottom:0;">서울에서 꼭 방문해야 할 대표 문화 및 관광지</p>
+                </div>
+            </div>
+
+            <div class="media-list">
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=200&q=80" alt="경복궁">
+                    <div class="media-info">
+                        <div class="rank-title"><span>1.</span> 경복궁</div>
+                        <div class="desc">조선 왕조 600년 역사의 중심이자 아름다운 으뜸 궁궐</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=200&q=80" alt="N서울타워">
+                    <div class="media-info">
+                        <div class="rank-title"><span>2.</span> N서울타워 (남산타워)</div>
+                        <div class="desc">서울 시내 전체를 한눈에 담을 수 있는 360도 파노라마 전망대</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1541004928407-f4e5a953e5e4?auto=format&fit=crop&w=200&q=80" alt="명동">
+                    <div class="media-info">
+                        <div class="rank-title"><span>3.</span> 명동 쇼핑거리</div>
+                        <div class="desc">글로벌 브랜드와 다채로운 길거리 음식을 즐길 수 있는 거리</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=200&q=80" alt="북촌한옥마을">
+                    <div class="media-info">
+                        <div class="rank-title"><span>4.</span> 북촌한옥마을</div>
+                        <div class="desc">조선 시대 전통 한옥 골목길이 고스란히 정겹게 보존된 마을</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80" alt="DDP">
+                    <div class="media-info">
+                        <div class="rank-title"><span>5.</span> 동대문디자인플라자 (DDP)</div>
+                        <div class="desc">자하 하디드가 설계한 곡선미가 돋보이는 미래형 복합문화공간</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=200&q=80" alt="롯데월드타워">
+                    <div class="media-info">
+                        <div class="rank-title"><span>6.</span> 롯데월드타워 & 서울스카이</div>
+                        <div class="desc">123층, 높이 555m에 달하는 국내 최고층 마천루와 구름 위 전망대</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=200&q=80" alt="홍대">
+                    <div class="media-info">
+                        <div class="rank-title"><span>7.</span> 홍대거리</div>
+                        <div class="desc">버스킹 공연, 특색 있는 카페, 독창적인 예술 문화를 만나는 거리</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=200&q=80" alt="인사동">
+                    <div class="media-info">
+                        <div class="rank-title"><span>8.</span> 인사동 쌈지길</div>
+                        <div class="desc">전통 공예품, 갤러리, 고즈넉한 전통 찻집이 어우러진 문화거리</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1617854818583-09e7f077a156?auto=format&fit=crop&w=200&q=80" alt="한강공원">
+                    <div class="media-info">
+                        <div class="rank-title"><span>9.</span> 한강공원 (여의도/반포)</div>
+                        <div class="desc">도심 속 휴식처, 라면 피크닉과 무지개 분수 야경을 즐기는 장소</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1541004928407-f4e5a953e5e4?auto=format&fit=crop&w=200&q=80" alt="국립중앙박물관">
+                    <div class="media-info">
+                        <div class="rank-title"><span>10.</span> 국립중앙박물관</div>
+                        <div class="desc">한국의 국보급 유물과 찬란한 역사를 한눈에 감상하는 보물창고</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 한국 대표 음식 TOP 10 -->
+        <div class="top10-card">
+            <div class="card-header">
+                <div class="card-icon" style="background:#fef3c7; color:#d97706;"><i class="fa-solid fa-utensils"></i></div>
+                <div>
+                    <h3>한국 대표 음식 TOP 10</h3>
+                    <p class="desc" style="margin-bottom:0;">외국인과 한국인 모두가 사랑하는 대표 K-FOOD</p>
+                </div>
+            </div>
+
+            <div class="media-list">
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1583224964978-2257b96073d3?auto=format&fit=crop&w=200&q=80" alt="불고기">
+                    <div class="media-info">
+                        <div class="rank-title"><span>1.</span> 불고기</div>
+                        <div class="desc">달콤하고 짭조름한 양념에 얇게 썬 소고기를 볶아낸 한국의 대표 요리</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=200&q=80" alt="비빔밥">
+                    <div class="media-info">
+                        <div class="rank-title"><span>2.</span> 전주 비빔밥</div>
+                        <div class="desc">다양한 나물과 고기, 고추장을 넣어 쓱쓱 비벼 먹는 영양 만점 한식</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=200&q=80" alt="삼겹살">
+                    <div class="media-info">
+                        <div class="rank-title"><span>3.</span> 삼겹살 구이</div>
+                        <div class="desc">불판에 노릇하게 구워 마늘, 쌈장과 함께 쌈을 싸 먹는 국민 외식 메뉴</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=200&q=80" alt="떡볶이">
+                    <div class="media-info">
+                        <div class="rank-title"><span>4.</span> 떡볶이</div>
+                        <div class="desc">쫄깃한 떡에 매콤달콤한 고추장 양념이 어우러진 대표 국민 분식</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=200&q=80" alt="김치찌개">
+                    <div class="media-info">
+                        <div class="rank-title"><span>5.</span> 김치찌개</div>
+                        <div class="desc">잘 익은 김치와 돼지고기, 두부를 넣고 얼큰하게 끓여낸 소울 푸드</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=200&q=80" alt="양념치킨">
+                    <div class="media-info">
+                        <div class="rank-title"><span>6.</span> K-양념치킨</div>
+                        <div class="desc">바삭하게 튀긴 치킨에 매콤달콤 특제 양념 소스를 버무린 꿀맛 치킨</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=200&q=80" alt="갈비찜">
+                    <div class="media-info">
+                        <div class="rank-title"><span>7.</span> 양념 소갈비찜</div>
+                        <div class="desc">부드럽게 푹 쪄낸 소갈비에 달콤한 간장 양념이 깊게 밴 명절 요리</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1583224964978-2257b96073d3?auto=format&fit=crop&w=200&q=80" alt="삼계탕">
+                    <div class="media-info">
+                        <div class="rank-title"><span>8.</span> 삼계탕</div>
+                        <div class="desc">영계에 인삼, 찹쌀, 대추를 넣고 정성껏 푹 고아낸 건강 보양식</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=200&q=80" alt="잡채">
+                    <div class="media-info">
+                        <div class="rank-title"><span>9.</span> 잡채</div>
+                        <div class="desc">탱글한 당면에 여러 야채와 고기를 간장 소스로 볶아낸 고소한 요리</div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <img class="media-img" src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?auto=format&fit=crop&w=200&q=80" alt="해물파전">
+                    <div class="media-info">
+                        <div class="rank-title"><span>10.</span> 해물파전</div>
+                        <div class="desc">싱싱한 해산물과 쪽파를 가득 넣어 노릇하고 바삭하게 부쳐낸 전</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLastWord = "사과";
+        function checkWord() {
+            const input = document.getElementById('word-input');
+            const result = document.getElementById('word-result');
+            const val = input.value.trim();
+            if (val.length < 2) {
+                result.innerText = "두 글자 이상 입력해주세요!";
+                return;
+            }
+            if (val[0] !== currentLastWord[currentLastWord.length - 1]) {
+                result.innerText = `'${currentLastWord[currentLastWord.length - 1]}'로 시작해야 해요!`;
+                return;
+            }
+            currentLastWord = val;
+            result.innerText = `성공! 다음 글자는 '${val[val.length - 1]}'입니다.`;
+            document.getElementById('word-prompt').innerHTML = `제시어: <b>${val}</b>`;
+            input.value = "";
+        }
+
+        const chosungList = [
+            { ch: "사과", hint: "빨갛고 아삭한 과일" },
+            { ch: "컴퓨터", hint: "책상 위에 있는 전자기기" },
+            { ch: "바나나", hint: "노랗고 길쭉한 과일" },
+            { ch: "강아지", hint: "사람을 잘 따르는 반려동물" },
+            { ch: "떡볶이", hint: "매콤달콤한 분식 메뉴" }
+        ];
+        function nextChosung() {
+            const random = chosungList[Math.floor(Math.random() * chosungList.length)];
+            document.getElementById('chosung-display').innerText = `단어 글자수: ${random.ch.length}글자`;
+            document.getElementById('chosung-hint').innerText = `힌트: ${random.hint} (${random.ch})`;
+        }
+
+        function generateBingo() {
+            const board = document.getElementById('bingo-board');
+            board.innerHTML = "";
+            let numbers = Array.from({length: 9}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
+            numbers.forEach(num => {
+                const cell = document.createElement('div');
+                cell.innerText = num;
+                cell.style.background = "#fff";
+                cell.style.border = "1px solid #cbd5e1";
+                cell.style.borderRadius = "6px";
+                cell.style.padding = "10px";
+                cell.style.fontWeight = "bold";
+                cell.style.cursor = "pointer";
+                cell.onclick = () => cell.style.background = cell.style.background === "rgb(199, 210, 254)" ? "#fff" : "#c7d2fe";
+                board.appendChild(cell);
+            });
+        }
+        generateBingo();
+
+        function askTwenty() {
+            const input = document.getElementById('twenty-input');
+            const result = document.getElementById('twenty-result');
+            const val = input.value.trim();
+            if(!val) return;
+            
+            if(val.includes("전자기기") || val.includes("물건") || val.includes("화면")) {
+                result.innerText = "답변: 네! 그렇습니다.";
+            } else if(val.includes("동물") || val.includes("사람")) {
+                result.innerText = "답변: 아니오, 아닙니다.";
+            } else {
+                result.innerText = "답변: 애매하거나 잘 모르겠어요!";
+            }
+            input.value = "";
+        }
+
+        const quotes = [
+            "어이가 없네? - 영화 베테랑",
+            "내 아이가 네 아이니? - 영화 범죄도시",
+            "이 중에서 살아남는 자가 강한 게 아니라, 강한 자가 살아남는 거야. - 영화 신세계",
+            "라면 먹고 갈래요? - 영화 봄날은 간다"
+        ];
+        function nextQuote() {
+            const rand = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote-display').innerText = rand;
+        }
+
+        const consonants = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ'];
+        function pickForbidden() {
+            const rand = consonants[Math.floor(Math.random() * consonants.length)];
+            document.getElementById('forbidden-display').innerText = `금지 자음: [ ${rand} ]`;
+        }
+    </script>
+</body>
+</html>
