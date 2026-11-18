@@ -412,6 +412,11 @@
         .hero-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; position: relative; z-index: 1; }
         .hero-links a { padding: 12px 18px; color: #17392d; background: #f2c38e; border-radius: 999px; text-decoration: none; font-weight: 800; font-size: 14px; }
         .hero-links a + a { color: white; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); }
+        .about-section { width: min(1100px, 100%); margin: -20px auto 0; padding: 30px 34px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; background: rgba(255,254,250,.8); border: 1px solid var(--border-color); border-radius: var(--radius-lg); }
+        .about-icon { width: 58px; height: 58px; display: grid; place-items: center; color: var(--primary); background: #e8f0e7; border-radius: 18px; font-size: 23px; }
+        .about-section .eyebrow { margin-bottom: 4px; color: var(--secondary); font-size: 11px; font-weight: 800; letter-spacing: .16em; }
+        .about-section h2 { margin-bottom: 6px; font-size: 1.35rem; letter-spacing: -.04em; }
+        .about-section p:last-child { color: var(--text-muted); }
         .section-title { width: min(1100px, 100%); margin: 64px auto 20px; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing: -.04em; }
         .section-title i { color: var(--secondary); }
         .container, .top10-grid, .music-section, .music-intro { width: 100%; max-width: 1100px; margin-left: auto; margin-right: auto; }
@@ -443,6 +448,7 @@
             .brand { font-size: 14px; }
             .nav-links { gap: 10px; }
             .nav-links a { font-size: 11px; }
+            .about-section { grid-template-columns: 1fr; padding: 23px; }
         }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     </style>
@@ -451,7 +457,7 @@
 
     <nav class="site-nav" aria-label="주요 메뉴">
         <a class="brand" href="#top"><span class="brand-mark"><i class="fa-solid fa-leaf"></i></span> 윤진의 작은 놀이터</a>
-        <div class="nav-links"><a href="#arcade">미니게임</a><a href="#travel">서울 여행</a><a href="#my-music">나의 음악</a></div>
+        <div class="nav-links"><a href="#about">자기소개</a><a href="#arcade">미니게임</a><a href="#travel">서울 여행</a><a href="#my-music">나의 음악</a></div>
     </nav>
 
     <header id="top">
@@ -460,6 +466,15 @@
         <p>재미있는 웹 미니게임 6종과 서울 명소 & 대표 한국 음식 TOP 10을 만나보세요!</p>
         <div class="hero-links"><a href="#arcade">게임 시작하기 <i class="fa-solid fa-arrow-down"></i></a><a href="#travel">서울 여행 둘러보기</a></div>
     </header>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-icon"><i class="fa-regular fa-face-smile"></i></div>
+        <div>
+            <p class="eyebrow">NICE TO MEET YOU</p>
+            <h2 id="about-title">안녕하세요, 윤진입니다!</h2>
+            <p>제 홈페이지에 와주셔서 반가워요. 제가 즐기는 미니게임과 좋아하는 서울 여행지, 한국 음식, 직접 만든 음악을 한곳에 모았어요. 천천히 둘러보며 즐거운 시간 보내세요.</p>
+        </div>
+    </section>
 
     <!-- 게임 섹션 타이틀 -->
     <div class="section-title" id="arcade">
