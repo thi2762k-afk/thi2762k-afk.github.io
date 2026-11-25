@@ -1529,7 +1529,7 @@
 
             .mobile-dock {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
                 position: fixed;
                 left: 12px;
                 right: 12px;
@@ -1701,6 +1701,11 @@
                     <a href="#my-music" class="rail-link" data-section="my-music">
                         <span class="idx">04</span>
                         <span>나의 음악</span>
+                        <span class="indicator" aria-hidden="true"></span>
+                    </a>
+                    <a href="#ai-video" class="rail-link" data-section="ai-video">
+                        <span class="idx">05</span>
+                        <span>AI 영상</span>
                         <span class="indicator" aria-hidden="true"></span>
                     </a>
                 </nav>
@@ -2189,6 +2194,18 @@
                         </article>
                     </div>
                 </section>
+                            <section class="section-shell" id="ai-video" aria-labelledby="ai-video-heading">
+                    <div class="sec-header">
+                        <div>
+                            <div class="sec-kicker">05 / AI VIDEO</div>
+                            <h2 class="sec-title" id="ai-video-heading">내가 직접 만든 AI 영상</h2>
+                        </div>
+                        <p class="sec-sub">AI로 직접 제작한 영상을 소개합니다.</p>
+                    </div>
+                    <div class="ai-video-frame">
+                        <iframe src="https://www.youtube.com/embed/eaS_tvQITZs" title="내가 직접 만든 AI 영상" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </section>
             </main>
 
             <!-- 6. FOOTER -->
@@ -2205,6 +2222,7 @@
         <a href="#arcade" data-section="arcade">미니게임</a>
         <a href="#travel" data-section="travel">서울 여행</a>
         <a href="#my-music" data-section="my-music">나의 음악</a>
+        <a href="#ai-video" data-section="ai-video">AI 영상</a>
     </nav>
 
     <script>
@@ -2229,7 +2247,7 @@
             updateKSTClock();
             setInterval(updateKSTClock, 1000);
 
-            const navTargets = ['about', 'arcade', 'travel', 'my-music'];
+            const navTargets = ['about', 'arcade', 'travel', 'my-music', 'ai-video'];
             const allNavLinks = document.querySelectorAll('[data-section]');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
